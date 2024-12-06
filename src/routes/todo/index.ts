@@ -1,4 +1,5 @@
 import Elysia from "elysia";
+import { createTodo, deleteTodo, getAllTodos, getTodoById, updateTodo } from "./handle";
 
 const todoRoute = new Elysia({prefix: '/todo'})
 .get('/', getAllTodos)
