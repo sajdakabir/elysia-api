@@ -17,7 +17,7 @@ model Todo {
   id        Int      @id @default(autoincrement())
   title     String
   completed Boolean @default(false)
-  descriptions   String @db.Text
+  description   String @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

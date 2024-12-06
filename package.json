@@ -1,10 +1,15 @@
 {
   "name": "elysia-api",
   "version": "1.0.50",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts",
-    "start": "nodemon --exec bun run src/index.ts"
+    "start": "nodemon --exec bun run src/index.ts",
+    "seed": "bunx prisma db seed"
+  },
+  "prisma":{
+    "seed":"node scripts/seed.js"
   },
   "dependencies": {
     "@elysiajs/swagger": "^1.1.6",
