@@ -1,12 +1,18 @@
 import { Elysia } from "elysia";
 import { swagger } from "@elysiajs/swagger";
+import { todoRoute } from "./routes/todo";
 
-const app = new Elysia()
-    // Apply the swagger plugin
-    .use(swagger()) 
-    .get('/', ({ path }) => path)
-    .post('/hello', 'Do you miss me?')
-    .listen(3000)
+const apiApp = new Elysia();
+
+// Apply the swagger plugin
+apiApp.use(swagger());
+
+// Group routes under /api
+apiApp.group("/api", (app) => app.use(todoRoute));
+
+// Start the server
+apiApp.listen(3000);
+
 console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+  `🦊 Elysia is running at ${apiApp.server?.hostname}:${apiApp.server?.port}`
 );
